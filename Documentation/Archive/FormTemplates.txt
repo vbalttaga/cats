@@ -1,0 +1,35 @@
+//1 column
+	<div class="content-one-column">
+		<div class="edit-section">
+			<div class="edit-section-header">
+				SECTIONNAME
+			</div>
+			<div class="edit-section-body">  
+			</div>
+		</div>
+	</div>
+
+    <div class="clear separator"></div>
+
+//2 colums
+    <div class="inner-content-left">
+			<div class="edit-section">
+				<div class="edit-section-header">
+					SECTIONNAME
+				</div>
+				<div class="edit-section-body">  
+				</div>
+			</div>
+    </div>
+
+	<div class="inner-content-right">
+			<div class="edit-section">
+				<div class="edit-section-header">
+					SECTIONNAME
+				</div>
+				<div class="edit-section-body">  
+				</div>
+			</div>
+    </div>
+
+    <div class="clear separator"></div>

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[AdminPageRole]
+(
+	[PageRoleID] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
+    [PageURL] NVARCHAR(150) NOT NULL, 
+    [RoleID] BIGINT NOT NULL
+)

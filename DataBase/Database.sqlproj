@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{6380b0dc-3728-4bac-a94b-171bdb48153b}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Database</RootNamespace>
+    <AssemblyName>Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Functions" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Functions\Table-valued funсtions" />
+    <Folder Include="dbo\Stored Procedures\Base" />
+    <Folder Include="dbo\Tables\Base" />
+    <Folder Include="Scripts" />
+    <Folder Include="dbo\Tables\BO" />
+    <Folder Include="dbo\Tables\Service" />
+    <Folder Include="dbo\Stored Procedures\Common" />
+    <Folder Include="dbo\Views" />
+    <Folder Include="dbo\Tables\Reports" />
+    <Folder Include="dbo\Stored Procedures\System" />
+    <Folder Include="dbo\Tables\FrontEndBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Functions\Table-valued funсtions\Split.sql" />
+    <Build Include="dbo\Tables\Base\AdminPageRole.sql" />
+    <Build Include="dbo\Tables\Base\Document.sql" />
+    <Build Include="dbo\Tables\Base\Graphic.sql" />
+    <Build Include="dbo\Tables\Base\Language.sql" />
+    <Build Include="dbo\Tables\Base\Person.sql" />
+    <Build Include="dbo\Tables\Base\Role.sql" />
+    <Build Include="dbo\Tables\Base\Sex.sql" />
+    <Build Include="dbo\Tables\Base\Translation.sql" />
+    <Build Include="dbo\Tables\Base\User.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Generic_Cancel.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Generic_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Generic_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Generic_PopulateTools.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Generic_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Translation_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Translation_Populate.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Translation_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Base\User_CheckLoginForUniqueness.sql" />
+    <Build Include="dbo\Stored Procedures\Base\User_DoLogin.sql" />
+    <Build Include="dbo\Stored Procedures\Base\User_Updatelast_login.sql" />
+    <Build Include="dbo\Tables\BO\News.sql" />
+    <Build Include="dbo\Tables\BO\Page.sql" />
+    <Build Include="dbo\Tables\BO\MenuType.sql" />
+    <Build Include="dbo\Tables\BO\PagePermission.sql" />
+    <Build Include="dbo\Tables\BO\PageRole.sql" />
+    <Build Include="dbo\Tables\BO\MenuItem.sql" />
+    <Build Include="dbo\Tables\BO\MenuGroup.sql" />
+    <Build Include="dbo\Tables\BO\MenuGroupRole.sql" />
+    <Build Include="dbo\Tables\BO\MenuItemRole.sql" />
+    <Build Include="dbo\Tables\BO\Message.sql" />
+    <Build Include="dbo\Tables\BO\UserMessage.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Generic_PopulateReport.sql" />
+    <Build Include="dbo\Tables\Service\KeyValueSetting.sql" />
+    <Build Include="dbo\Tables\Base\Permission.sql" />
+    <Build Include="dbo\Stored Procedures\Common\MenueGroup_Populate.sql" />
+    <Build Include="dbo\Stored Procedures\Common\MenuItem_PopulateRecent.sql" />
+    <Build Include="dbo\Stored Procedures\Common\Person_Populate.sql" />
+    <Build Include="dbo\Stored Procedures\Common\User_Populate.sql" />
+    <Build Include="dbo\Stored Procedures\Common\User_UpdatePassword.sql" />
+    <Build Include="dbo\Stored Procedures\Common\Person_LoadInfo.sql" />
+    <Build Include="dbo\Stored Procedures\Common\Person_UpdateEmail.sql" />
+    <Build Include="dbo\Tables\Base\BORevision.sql" />
+    <Build Include="dbo\Stored Procedures\Base\BORevisions_Populate.sql" />
+    <Build Include="dbo\Stored Procedures\Base\BORevisions_Populate_By_User.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Person_CanDelete.sql" />
+    <Build Include="dbo\Stored Procedures\Base\Revision_Insert.sql" />
+    <Build Include="dbo\Tables\Reports\PrintableReportType.sql" />
+    <Build Include="dbo\Tables\Reports\PrintableReport.sql" />
+    <Build Include="dbo\Stored Procedures\Common\Role_Populate_Users.sql" />
+    <Build Include="dbo\Stored Procedures\Common\User_Populate_Latests.sql" />
+    <Build Include="dbo\Tables\BO\UsefullInfo.sql" />
+    <Build Include="dbo\Views\UserList.sql" />
+    <Build Include="dbo\Stored Procedures\System\Field_Populate_Page.sql" />
+    <Build Include="dbo\Tables\FrontEndBase\Field.sql" />
+    <Build Include="dbo\Tables\FrontEndBase\FieldDisplayMode.sql" />
+    <Build Include="dbo\Tables\FrontEndBase\DisplayMode.sql" />
+    <Build Include="dbo\Tables\Base\PredefinedColor.sql" />
+    <Build Include="dbo\Stored Procedures\Common\Person_Populate_ByPermission.sql" />
+    <Build Include="dbo\Stored Procedures\System\PrintableReport_LoadTemplate.sql" />
+    <Build Include="dbo\Stored Procedures\Common\Manuals_Populate.sql" />
+    <Build Include="dbo\Tables\BO\Manual.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+</Project>

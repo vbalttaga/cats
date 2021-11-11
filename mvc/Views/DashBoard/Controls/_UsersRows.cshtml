@@ -1,0 +1,17 @@
+﻿@using Gofra.Models.Objects
+@using GofraLib.BusinessObjects
+@{
+    Layout = "~/Views/Master/_Ajax.cshtml";
+}
+@{ var index = ((Dictionary<long, LIB.BusinessObjects.User>)ViewData["List"]).Count+ (int)ViewData["DashboardListCount"];}
+@foreach (var usr in ((Dictionary<long, LIB.BusinessObjects.User>)ViewData["List"]).Values)
+{
+    <a href="@LIB.Tools.Utils.URLHelper.GetUrl("SystemManagement/EditItem/User/GofraLib.BusinessObjects//" + usr.Id )" target="_blank" class="data-grid-data-row data-grid-data-row-@(usr.Id) data-grid-data-row-type-@(usr.Role.Id)">
+        <div class="data-grid-data"><b>@(usr.Id)</b></div>
+        <div class="data-grid-data">@(usr.Login)</div>
+        <div class="data-grid-data">@(usr.Person.GetName())</div>
+        <div class="data-grid-data">@(usr.LastLogin.ToString("dd.MM.yyyy HH:mm"))</div>
+        <div class="data-grid-data">@(usr.DateCreated.ToString("dd.MM.yyyy HH:mm"))</div>
+        <input type="hidden" name="widgetitems" value="@(usr.Id):@(usr.Role.Id)" />
+    </a>
+}

@@ -1,0 +1,36 @@
+﻿@using Weblib.Models.Common
+@using LIB.Models
+@{
+    var currentPerson = (GofraLib.BusinessObjects.Person)Session[LIB.Tools.Utils.SessionItems.Person];
+}
+<div class="footer">
+    @if (ViewData["ReportMenu"] != null && ((List<LIB.Models.Common.iBaseControlModel>)ViewData["ReportMenu"]).Count > 0)
+    {
+        <div id="report_start">
+            <div id="report_menu">
+                <div class="menu-report-title">Imprimare</div>
+                <div>
+                    @foreach (var ilink in (List<LIB.Models.Common.iBaseControlModel>)ViewData["ReportMenu"])
+                    {
+                        var link = (LIB.Models.LinkModel)ilink;
+                        @Html.Partial("../Controls/_link", link);
+                    }
+                </div>
+            </div>
+            <div id="report_start_btn">
+
+            </div>
+        </div>
+    }
+    @if (ViewData["QuickLinks"] != null)
+    {
+        <div class="footer-quicklinks">
+            @foreach (var ilink in (List<LIB.Models.Common.iBaseControlModel>)ViewData["QuickLinks"])
+            {
+                var link = (LIB.Models.LinkModel)ilink;
+                <a class="@link.Class" href="@link.Href">@Html.Raw(link.Caption)</a>
+            }
+            <div class="clear"></div>
+        </div>
+    }
+</div>

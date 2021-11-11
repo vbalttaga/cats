@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Активный</value>
+  </data>
+  <data name="Aggre" xml:space="preserve">
+    <value>Агрег</value>
+  </data>
+  <data name="Aggregation" xml:space="preserve">
+    <value>Агрегирование</value>
+  </data>
+  <data name="AggregationPost" xml:space="preserve">
+    <value>Пост агрегации</value>
+  </data>
+  <data name="AggregationSection" xml:space="preserve">
+    <value>Раздел агрегации</value>
+  </data>
+  <data name="Audit" xml:space="preserve">
+    <value>Аудит</value>
+  </data>
+  <data name="CheckIn" xml:space="preserve">
+    <value>Госпитализация</value>
+  </data>
+  <data name="CheckOut" xml:space="preserve">
+    <value>Выписка</value>
+  </data>
+  <data name="CheckUp" xml:space="preserve">
+    <value>Экспертиза</value>
+  </data>
+  <data name="ControlPanel" xml:space="preserve">
+    <value>Панель управления</value>
+  </data>
+  <data name="CreationDate" xml:space="preserve">
+    <value>Создан (дата):</value>
+  </data>
+  <data name="Culture" xml:space="preserve">
+    <value>Культура</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Панель приборов</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="DegreeAwardingDate" xml:space="preserve">
+    <value>Дата присуждения степени</value>
+  </data>
+  <data name="Diagnostic" xml:space="preserve">
+    <value>Диагностика</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Доктор</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Документы</value>
+  </data>
+  <data name="Drugs" xml:space="preserve">
+    <value>Медикаменты</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Сотрудник</value>
+  </data>
+  <data name="EmployeeTransfer" xml:space="preserve">
+    <value>Перевод человека</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Доступность</value>
+  </data>
+  <data name="Equipment" xml:space="preserve">
+    <value>Оборудование</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>Дата с</value>
+  </data>
+  <data name="Full_Name" xml:space="preserve">
+    <value>Полное Имя</value>
+  </data>
+  <data name="HeavyCondition" xml:space="preserve">
+    <value>Тяжелые  Условия</value>
+  </data>
+  <data name="HonorTitle" xml:space="preserve">
+    <value>Почетное Звание</value>
+  </data>
+  <data name="HonorTitleEmployee" xml:space="preserve">
+    <value>Почетные звания сотрудиков</value>
+  </data>
+  <data name="Human_Resources" xml:space="preserve">
+    <value>Отдел Кадров</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Изображение</value>
+  </data>
+  <data name="KMultiplier" xml:space="preserve">
+    <value>K множителя</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Языки</value>
+  </data>
+  <data name="MilitaryPost" xml:space="preserve">
+    <value>Военная должность</value>
+  </data>
+  <data name="MilitaryRecord" xml:space="preserve">
+    <value>Военный документ</value>
+  </data>
+  <data name="MilitaryRecords" xml:space="preserve">
+    <value>Военные документы</value>
+  </data>
+  <data name="MilitaryServiceType" xml:space="preserve">
+    <value>Тип военной службы</value>
+  </data>
+  <data name="MilitaryTitle" xml:space="preserve">
+    <value>Военное звание</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Навигация</value>
+  </data>
+  <data name="Nomenclatures" xml:space="preserve">
+    <value>Номенклатура</value>
+  </data>
+  <data name="OrderDate" xml:space="preserve">
+    <value>Дата заказа</value>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>Номер заказа</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Заказ</value>
+  </data>
+  <data name="OtherInformation" xml:space="preserve">
+    <value>Другая информация</value>
+  </data>
+  <data name="Pacient" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="Paragraph" xml:space="preserve">
+    <value>Параграф</value>
+  </data>
+  <data name="Person" xml:space="preserve">
+    <value>Личность</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Должность</value>
+  </data>
+  <data name="Procedure" xml:space="preserve">
+    <value>Процедуры</value>
+  </data>
+  <data name="RecordGroup" xml:space="preserve">
+    <value>Группа записи</value>
+  </data>
+  <data name="RecordType" xml:space="preserve">
+    <value>Тип документа</value>
+  </data>
+  <data name="Revision" xml:space="preserve">
+    <value>Ревизии</value>
+  </data>
+  <data name="ScientificDegree" xml:space="preserve">
+    <value>Научная степень</value>
+  </data>
+  <data name="ScientificDegreeEmployee" xml:space="preserve">
+    <value>Научная степень сотрудника</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Отделение</value>
+  </data>
+  <data name="Settigs" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="Short_Name" xml:space="preserve">
+    <value>Короткое Название</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Шаблоны</value>
+  </data>
+  <data name="TillDate" xml:space="preserve">
+    <value>Дата до</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Перевод</value>
+  </data>
+  <data name="TransferInformation" xml:space="preserve">
+    <value>Данные о трансфере</value>
+  </data>
+  <data name="Transfers" xml:space="preserve">
+    <value>Переводы</value>
+  </data>
+  <data name="TransferType" xml:space="preserve">
+    <value>Тип перевода</value>
+  </data>
+  <data name="Translation" xml:space="preserve">
+    <value>Перевод</value>
+  </data>
+  <data name="User_Management" xml:space="preserve">
+    <value>Управление Пользователя</value>
+  </data>
+  <data name="Сommissariat" xml:space="preserve">
+    <value>Комиссариат</value>
+  </data>
+  <data name="Clone" xml:space="preserve">
+    <value>Клонировать</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Экспорт</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Импорт</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Печатать</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>Обязательное поле</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Сохранить и выйти</value>
+  </data>
+  <data name="MilitarySpecialty" xml:space="preserve">
+    <value>Военная специальность</value>
+  </data>
+  <data name="RecordsPerPage" xml:space="preserve">
+    <value>Записей на странице</value>
+  </data>
+  <data name="CommissariatVerifiedDate" xml:space="preserve">
+    <value>Дата проверки комиссариатом</value>
+  </data>
+  <data name="EvidenceCategory" xml:space="preserve">
+    <value>Свидетельствующая категоря</value>
+  </data>
+  <data name="EvidenceGroup" xml:space="preserve">
+    <value>Свидетельствующая группа </value>
+  </data>
+  <data name="FinishedService" xml:space="preserve">
+    <value>Закончил службу</value>
+  </data>
+  <data name="MilitaryIDVerifiedDate" xml:space="preserve">
+    <value>Дата проверки военного билета</value>
+  </data>
+  <data name="StartService" xml:space="preserve">
+    <value>Начал службу</value>
+  </data>
+  <data name="EmploymentHistory" xml:space="preserve">
+    <value>Трудовая книжка</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="Series" xml:space="preserve">
+    <value>Серия</value>
+  </data>
+  <data name="CertificateType" xml:space="preserve">
+    <value>Тип сертификакта</value>
+  </data>
+  <data name="CourseTitle" xml:space="preserve">
+    <value>Название курса</value>
+  </data>
+  <data name="FieldOfActivity" xml:space="preserve">
+    <value>Сфера деятельности</value>
+  </data>
+  <data name="FinishedStudies" xml:space="preserve">
+    <value>Закончил(а) обучение</value>
+  </data>
+  <data name="Improvement" xml:space="preserve">
+    <value>Совершенствование</value>
+  </data>
+  <data name="Improvements" xml:space="preserve">
+    <value>Совершенствования</value>
+  </data>
+  <data name="Nr.Credits/Hours" xml:space="preserve">
+    <value>Nr. Кредитов/Часов</value>
+  </data>
+  <data name="Nr.OrderAndDateOfIssue" xml:space="preserve">
+    <value>Nr. приказа и дата выдачи</value>
+  </data>
+  <data name="SpecializationOfStudies" xml:space="preserve">
+    <value>Специализация обучения</value>
+  </data>
+  <data name="StartedStudies" xml:space="preserve">
+    <value>Начал(а) обучение</value>
+  </data>
+  <data name="Attestation" xml:space="preserve">
+    <value>Аттестация</value>
+  </data>
+  <data name="AttestationDate" xml:space="preserve">
+    <value>Дата аттестации</value>
+  </data>
+  <data name="Attestations" xml:space="preserve">
+    <value>Аттестации</value>
+  </data>
+  <data name="AttestationType" xml:space="preserve">
+    <value>Тип аттестации</value>
+  </data>
+  <data name="AwardingDate" xml:space="preserve">
+    <value>Дата присуждения</value>
+  </data>
+  <data name="Basis" xml:space="preserve">
+    <value>Основа</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="Child" xml:space="preserve">
+    <value>Ребенок</value>
+  </data>
+  <data name="Children" xml:space="preserve">
+    <value>Дети</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Дни</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="OdrerMS" xml:space="preserve">
+    <value>Приказ MS</value>
+  </data>
+  <data name="Sanction/Stimulation" xml:space="preserve">
+    <value>Санкция/Стимуляция</value>
+  </data>
+  <data name="Sanctions/Stimulations" xml:space="preserve">
+    <value>Санкции/Стимуляции</value>
+  </data>
+  <data name="Specialty" xml:space="preserve">
+    <value>Специальность</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Vacation" xml:space="preserve">
+    <value>Отпуск</value>
+  </data>
+  <data name="Vacations" xml:space="preserve">
+    <value>Отпуска</value>
+  </data>
+  <data name="VacationsAddditionals" xml:space="preserve">
+    <value>Дополнительные отпуска</value>
+  </data>
+  <data name="VacationAdditional" xml:space="preserve">
+    <value>Дополнительный отпуск</value>
+  </data>
+</root>

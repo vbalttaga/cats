@@ -1,0 +1,33 @@
+﻿@using Weblib.Models
+@using Gofraweblib.Enums
+@using GofraLib.BusinessObjects
+@{
+    Layout = "~/Views/Master/_Ajax.cshtml";
+    var Dashboard = ViewData["Dashboard"] is DashboardEnum ? (DashboardEnum)ViewData["Dashboard"] : DashboardEnum.None;
+    var GroupedList = ((Dictionary<long, LIB.Tools.BO.AggregateBase>)ViewData["GroupedList"]);
+    var index = 0;
+}
+gChartDataArray = d3.scale.ordinal()
+    .domain(
+    [
+    @if (GroupedList != null) {
+        foreach (var item in GroupedList.Values)
+        {
+        @: @(index == 0 ? "" : ",")"@(item.GetChartName()):@(item.GetCount()):@(item.Id)"
+                index++;
+        }
+    }
+    ]
+    )
+    .range(
+    [
+@if (GroupedList != null)
+{
+    index = 0;
+    foreach (var item in GroupedList.Values)
+    {
+        @:@(index == 0 ? "" : ",")"@(item.GetColor())"
+                index++;
+    }
+}
+]);

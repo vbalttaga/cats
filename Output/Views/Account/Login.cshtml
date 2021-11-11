@@ -1,0 +1,61 @@
+﻿@using Weblib.Models
+@{
+    Layout = "~/Views/Master/_Simplified.cshtml";
+}
+<div class="login-container">
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="clear-height"></div>
+    <A href="@LIB.Tools.Utils.URLHelper.GetUrl("")" class="login-logo"></A> 
+    <div class="login-body">
+        <div class="login-form form-controls">
+                @Html.Partial("../Controls/_textbox",((LoginModel)Model).Login)
+                @Html.Partial("../Controls/_textbox",((LoginModel)Model).Password)  
+                <div class="message-box"></div> 
+                <a href="/ForgotPassword/" class="forgot_pswd">A-ti uitat parola</a>
+                <div class="login-actions">
+                    <div class="login-checkbox">
+                        <div class="cp_check">
+	                        <input type="checkbox" name="store_pass" value="1" />
+                        </div>
+                        <label class="cp_label" for="store_pass">Memorizare</label>
+                    </div>   
+                    <a href="#" onclick="return doLogin()" class="login-btn button">
+                       <div>Enter</div>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+        </div>
+    </div>
+    <div class="loading"> </div>
+}
+</div>
+<div class="clear"></div>
+<div class="info-container">
+    <div class="info-left">        
+        <div class="info-title news">Noutati</div>
+        <div class="info-block">            
+        @foreach (GofraLib.BusinessObjects.News item in ((Dictionary<long, LIB.Tools.BO.ItemBase>)ViewData["News"]).Values)
+        {
+            <div class="news-container">
+                <div class="news-date"><div>@item.Date.ToString("MM.dd.yyyy")</div></div>
+                <div class="news-title">@item.Title</div>
+                <div class="clear"></div>
+                <div class="text">@Html.Raw(item.Text)</div>
+            </div>
+        }  
+        </div>
+    </div>
+    <div class="info-right">
+        <div class="info-title information">Informatie</div>
+        <div class="info-block">
+        @foreach (GofraLib.BusinessObjects.UsefullInfo item in ((Dictionary<long, LIB.Tools.BO.ItemBase>)ViewData["Information"]).Values)
+        {
+            <div class="infromation-container">
+                <div class="text">@Html.Raw(item.Text)</div>
+            </div>
+        }  
+        </div>
+    </div>
+ </div>

@@ -1,0 +1,68 @@
+﻿@using Weblib.Models.Common
+@{
+    var Count = (long)ViewData["Count"];
+    var CountPerPage = (int)ViewData["CountPerPage"];
+    var PageNum = (int)ViewData["PageNum"]; 
+}
+<div class="data-grid-container">
+    <input type="hidden" id="page_num" value="@PageNum" />
+    <input type="hidden" id="sort_col" value="@(Request.Form["SortCol"])" />
+    <input type="hidden" id="sort_dir" value="@(Request.Form["SortDir"])" />
+    <!------------------------------------VIEW PER PAGE------------------------------>
+    @if(Count>0) { 
+    <div class="grid-item-page">
+        <div class="grid-item-page-block">
+            <select onchange="count_per_page()" id="dpdwn_count_per_page" class="grid-item-page-ddown">
+                <option @(CountPerPage==10?"selected":"")>10</option>
+                <option @(CountPerPage == 25 ? "selected" : "")>25</option>
+                <option @(CountPerPage == 50 ? "selected" : "")>50</option>
+                <option @(CountPerPage == 100 ? "selected" : "")>100</option>
+            </select>
+            <div class="grid-item-page-ddown-text">
+                @Gofra.Helpers.T.Str("RecordsOnPage", "DashBoard", "inscrieri pe pagină")
+            </div>
+        </div>
+        <div class="grid-item-add-page-block">
+            <div class="grid-item-page-counter">
+                @Gofra.Helpers.T.Str("Shown", "DashBoard", "afișate") @(CountPerPage < Count ? CountPerPage : Count) @Gofra.Helpers.T.Str("From", "DashBoard", "din") @Count @Gofra.Helpers.T.Str("Records", "DashBoard", "inscrieri")
+            </div>
+        </div>
+    </div>
+    }
+    <!------------------------------------GRID--------------------------------------->
+    <div class="data-grid" data-type="@(ViewData["Grid_Type"])">
+        <div class="data-grid-title-row">    
+            @foreach (LIB.AdvancedProperties.AdvancedProperty property in (LIB.AdvancedProperties.AdvancedProperties)ViewData["Properties"])
+            {
+                if (property.Common.Visible==true) { 
+                        @Html.Partial("../Controls/ReportGrid/_title_row", property);
+                    }
+            }            
+        </div>
+        @foreach(var item in ((Dictionary<long,LIB.Tools.BO.ItemBase>)Model).Values) {
+            @Html.Partial("../Controls/ReportGrid/_data_row", item);
+        }  
+    </div>
+    @if(Count > CountPerPage) {
+    <div class="main-pagination">
+        <div class="pagination-block">
+            <ul class="pagination">
+                @if(PageNum>1) { 
+                <li>
+                    <a href="#" onclick="return show_report_page(@((PageNum - 1).ToString()))" class="pagination-page">@Gofra.Helpers.T.Str("Previous", "DashBoard", "Precendentă")</a>
+                </li>
+                }
+
+                @Html.Raw(ViewData["BuildPaginng"])
+
+                @if ((PageNum) * CountPerPage <= Count)
+                { 
+                <li>
+                    <a href="#" onclick="return show_report_page(@((PageNum + 1).ToString()))" class="pagination-page">@Gofra.Helpers.T.Str("Next", "DashBoard", "Următoarea")</a>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+    }
+</div>

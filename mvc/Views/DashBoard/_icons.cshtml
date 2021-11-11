@@ -1,0 +1,30 @@
+﻿@using Weblib.Models.Common
+@using GofraLib.BusinessObjects
+@{
+    var currentPerson = (GofraLib.BusinessObjects.Person)Session[LIB.Tools.Utils.SessionItems.Person];
+}
+@if (LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission((long)LIB.BusinessObjects.BasePermissionenum.SMIAccess))
+{
+    <a title="System Management Interface" href="@LIB.Tools.Utils.URLHelper.GetUrl("systemmanagement")" class="dashboard-ico dashboard-ico-settings">
+        <div class="outer-ico">
+            <div class="inner-ico">
+                <div class="dashboard-icon">
+                    SMI
+                </div>
+            </div>
+        </div>
+    </a>
+}
+@if (LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission((long)LIB.BusinessObjects.BasePermissionenum.CPAccess))
+{
+    <a title="Control Panel" href="@LIB.Tools.Utils.URLHelper.GetUrl("ControlPanel")" class="dashboard-ico dashboard-ico-settings">
+        <div class="outer-ico">
+            <div class="inner-ico">
+                <div class="dashboard-icon">
+                    @Html.Raw(Gofra.Helpers.T.Str ("Settings", "DashBoard", "Setări"))
+                </div>
+            </div>
+        </div>
+    </a>
+}
+<div class="clear" style="height:1px"></div>

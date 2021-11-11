@@ -1,0 +1,16 @@
+﻿@using Weblib.Models.Common
+@{
+    var bNewTab = (bool)ViewData["NewTab"];
+    var url = bNewTab ? "window.open('" + LIB.Tools.Utils.URLHelper.GetUrl(((LIB.Tools.BO.ItemBase)Model).GetLink()) + "')" : "window.location='" + LIB.Tools.Utils.URLHelper.GetUrl(((LIB.Tools.BO.ItemBase)Model).GetLink()) + "'";
+}
+<div onclick="@url" class="data-grid-data-row data-grid-data-row-@(((LIB.Tools.BO.ItemBase)Model).Id.ToString() + ((GofraLib.BusinessObjects.ReportBase)Model).getConditionalClass())">    
+    @foreach (LIB.AdvancedProperties.AdvancedProperty property in (LIB.AdvancedProperties.AdvancedProperties)ViewData["Properties"])
+    {
+        if (property.Common.Visible == true)
+        { 
+            @:<div class="data-grid-data"> 
+                Html.RenderAction(property.ControlView, property.Control, new { model = property.GetDataProcessor().SetValue(property.PropertyDescriptor.GetValue(Model), property, (LIB.Tools.BO.ItemBase)Model,true) });
+            @:</div>
+        }
+    }     
+</div>

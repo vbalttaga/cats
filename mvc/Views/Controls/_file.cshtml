@@ -1,0 +1,17 @@
+﻿@using Weblib.Models.Common
+@using Weblib.Models.Common.Enums
+<div class="@(!string.IsNullOrEmpty(((DocumentModel)Model).Class) ? ((DocumentModel)Model).Class : "file")">
+    @if (((DocumentModel)Model).Value != null)
+    {
+    <a id="@(((DocumentModel)Model).Name)_link" target="_blank" href="@(((DocumentModel)Model).Value.File)">@(((DocumentModel)Model).Value.Name)</a>
+    }
+    else
+    {
+        <a id="@(((DocumentModel)Model).Name)_link" target="_blank" href=""></a>
+    }
+    @if (!((DocumentModel)Model).ReadOnly)
+    {
+        @Html.Partial("../Controls/_button", new ButtonModel() { Name = "UploadFile", Text = "Upload Fisier" });
+    }
+    <input type="hidden" name="@(((DocumentModel)Model).Name)" value="@(((DocumentModel)Model).Value != null?((DocumentModel)Model).Value.Id.ToString():"")" />
+</div>

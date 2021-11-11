@@ -1,0 +1,34 @@
+<div class="edit-section-row">
+	<div class="edit-section-row-left">
+	
+	</div>
+	<div class="edit-section-row-right">
+	
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="edit-section-row edit-section-row-full-size-floatelements">
+
+	<div class="clear"></div>
+</div>
+
+<div class="edit-section-row">
+	<div class="edit-section-row-trio edit-section-row-fisrt">
+	</div>
+	<div class="edit-section-row-trio edit-section-row-second">
+	</div>
+	<div class="edit-section-row-trio edit-section-row-third">
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="edit-section-row edit-section-row-trio">
+
+	<div class="clear"></div>
+</div>
+
+<div class="edit-section-row edit-section-row-full-size">
+
+	<div class="clear"></div>
+</div>

@@ -1,0 +1,18 @@
+﻿@using Weblib.Models.Common
+@using Weblib.Models.Common.Enums
+<div id="upload_image_container_@(((PhotoModel)Model).Name)" class="@(!string.IsNullOrEmpty(((PhotoModel)Model).Class) ? ((PhotoModel)Model).Class : "file")">
+    <div class="upload-image-loading" style="width: @(((PhotoModel)Model).Width)px;height:@(((PhotoModel)Model).Height)px"></div>
+    @if (((PhotoModel)Model).Value != null && ((PhotoModel)Model).Value.Id>0)
+    {
+        <a id="@(((PhotoModel)Model).Name)_link" class="pop-up-img" href="@(((PhotoModel)Model).Value.Thumbnail)"><img height="@(((PhotoModel)Model).Height)" width="@(((PhotoModel)Model).Width)" src="@(((PhotoModel)Model).Value.Thumbnail)" /></a>
+    }
+    else
+    {
+        <a id="@(((PhotoModel)Model).Name)_link" href="#"><img height="@(((PhotoModel)Model).Height)" width="@(((PhotoModel)Model).Width)" src="@(LIB.BusinessObjects.Graphic.ToolsPlaceHolder.Thumbnail)" /></a>
+    }
+    @if (!((PhotoModel)Model).ReadOnly)
+    {
+        @Html.Partial("../Controls/_button", new ButtonModel() { Name = "UploadFile", Text = "Upload Foto" });
+    }
+    <input type="hidden" name="@(((PhotoModel)Model).Name)" value="@(((PhotoModel)Model).Value != null?((PhotoModel)Model).Value.Id.ToString():"")" />
+</div>

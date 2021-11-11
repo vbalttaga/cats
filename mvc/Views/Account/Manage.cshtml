@@ -1,0 +1,66 @@
+﻿@model GofraLib.BusinessObjects.User
+@using Weblib.Models
+@using Weblib.Models.Common
+@{
+    Layout = "~/Views/Master/_Standard.cshtml";
+}
+<form class="inner-content-area content-control content-user" action="@LIB.Tools.Utils.URLHelper.GetUrl("Account/Edit")">        
+    <div class="ajax-loading-overlay"></div>    
+    @Html.Partial("../Controls/RowControl/_pagecontrols", new PageControlsModel() { Id = Model.Id, Delete=false,Object="User",Namespace=typeof(GofraLib.BusinessObjects.User).FullName })
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="inner-content-left">
+        <div class="edit-section">
+            <div class="edit-section-header">
+                Date personale
+            </div>
+            <div class="edit-section-body">
+                <div class="edit-section-row">
+                    <div class="edit-section-row-left">
+                        @Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel() { Name = "FirstName", Type=Weblib.Models.Common.Enums.TextboxType.ReadOnly , Value = Model.Person.FirstName, Caption = "Nume" })
+                    </div>
+                    <div class="edit-section-row-right">
+                        @Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel() { Name = "LastName", Type=Weblib.Models.Common.Enums.TextboxType.ReadOnly, Value = Model.Person.LastName, Caption = "Prenume" })
+                    </div>
+                    <div class="clear"></div>
+                </div>                
+                <div class="edit-section-row">
+                    <div class="edit-section-row-left">
+                        @Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel() { Name = "UserName", Type=Weblib.Models.Common.Enums.TextboxType.ReadOnly , Value = Model.Login, Caption = "Nume" })
+                    </div>
+                    <div class="edit-section-row-right">
+                        @Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel() { Name = "OldPassword", ValidationType = LIB.AdvancedProperties.ValidationTypes.Required, Type = Weblib.Models.Common.Enums.TextboxType.Password, Caption = "Parola Curenta" })
+                        @Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel() { Name = "Password", ValidationType = LIB.AdvancedProperties.ValidationTypes.Required, ValidationFuction = "PasswordEqual", Type = Weblib.Models.Common.Enums.TextboxType.Password, Caption = "Parola Noua" })
+                        @Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel() { Name = "PasswordConfirm", ValidationType = LIB.AdvancedProperties.ValidationTypes.Required, Type = Weblib.Models.Common.Enums.TextboxType.Password, Caption = "Parola Confirmarea" })
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="inner-content-right">
+        <div class="edit-section">
+            <div class="edit-section-header">
+                @Gofra.Helpers.T.Str("Message", "DashBoard", "Mesaje")
+            </div>
+            <div class="edit-section-body">
+                 <div class="info-block">            
+                @foreach (GofraLib.BusinessObjects.Message item in Model.Messages.Values)
+                {
+                    <div class="news-container">
+                        <div class="news-date"><div>@item.Date.ToString("MM.dd.yyyy")</div></div>
+                        <div class="news-title">@item.Title</div>
+                        <div class="clear"></div>
+                        <div class="text">@item.Text</div>
+                    </div>
+                }  
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="clear separator"></div>
+
+</form>
+<div class="clear"></div>

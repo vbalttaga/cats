@@ -1,0 +1,94 @@
+﻿@using System.Web.Optimization
+@using WebLib.UI
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="msapplication-config" content="none"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>@ViewBag.Title</title>
+        <link href="~/images/favicon.png" rel="shortcut icon" type="image/png" />
+        <script type="text/javascript">
+            var gRootUrl = '@LIB.Tools.Utils.URLHelper.GetUrl("")';
+        </script>
+        @Styles.Render("~/styles/common")
+        @Styles.Render("~/styles/full")
+        @Styles.Render("~/styles/front_common")
+        @Styles.Render("~/styles/front_full")
+        @Styles.Render("~/styles/" + Session["Browser_specific"].ToString())
+        @Scripts.Render("~/scripts/jquerylib")
+        @Scripts.Render("~/scripts/jquery-ui")
+        @Scripts.Render("~/scripts/jquery-upload")
+        @Scripts.Render("~/scripts/jquery-download")
+        @Scripts.Render("~/scripts/d3")
+        @Scripts.Render("~/scripts/front_common")
+        @Scripts.Render("~/scripts/front_advanced")
+        @Scripts.Render("~/scripts/commonlib")
+        @Scripts.Render("~/scripts/dynamics")
+        @Html.BuilderCssFiles(this.Url, ResourceLocation.Head)
+        @Html.BuilderScripts(this.Url, ResourceLocation.Head)
+        <script type="text/javascript">
+            @if ((bool)Session["IsSafary"])
+            {
+            @:gIsSafary = true;
+                        }
+            else if ((bool)Session["IsChrome"])
+            {
+            @:gIsChrome = true;
+                        }
+            else if ((bool)Session["IsFF"])
+            {
+            @:gIsFF = true;
+                        }
+            else if ((bool)Session["IsMacSafary"])
+            {
+            @:gIsMacSafary = true;
+                        }
+            else if ((bool)Session["IsMacChrome"])
+            {
+            @:gIsMacChrome = true;
+                        }
+            else if ((bool)Session["IsIE11"])
+            {
+            @:gIsIE11 = true;
+                        }
+            else if ((bool)Session["IsIE10"])
+            {
+            @:gIsIE10 = true;
+                        }
+            else if ((bool)Session["IsIE9"])
+            {
+            @:gIsIE9 = true;
+                        }
+            else if ((bool)Session["IsAndroidFF"])
+            {
+            @:gIsAndroidFF = true;
+                        }
+            else if ((bool)Session["IsAndroidNative"])
+            {
+            @:gIsAndroidNative = true;
+                        }
+            else if ((bool)Session["IsIPad"])
+            {
+            @:gIsIPad = true;
+                        }
+            else if ((bool)Session["IsMacFF"])
+            {
+            @:gIsMacFF = true;
+                        }
+            else if ((bool)Session["IsIEOld"])
+            {
+            @:gIsIEOld = true;
+                        }
+        </script>
+    </head>
+    <body>
+        @Html.Partial("../Controls/_message")
+        @Html.Partial("../Layout/Standard/_Header")
+        <div class="content">
+            @RenderBody()          
+        </div>
+        @Html.Partial("../Layout/Standard/_Footer")
+    </body>
+</html>
+

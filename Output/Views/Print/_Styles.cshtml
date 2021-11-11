@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Master/_Js.cshtml";
+    var Sandbox = ViewData["SandboxPrint"] is bool ? (bool)ViewData["SandboxPrint"] : false;
+}
+@if (Sandbox)
+{
+   @:<style type="text/css" media="print">
+   @:.print-container{
+   @: border: none !important;
+   @: }
+   @:</style>
+   @:<style type="text/css">
+   @:.print-container{
+   @: border: 1px solid black;
+   @: }
+}
+else{
+   @:<style type="text/css" media="print">
+}
+    @Html.Raw(ViewData["Styles"])
+
+</style>

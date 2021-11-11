@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[BORevision]
+(
+	[BORevisionId] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
+    [Table] NVARCHAR(1000) NOT NULL, 
+    [BOId] BIGINT NOT NULL, 
+    [BOName] NVARCHAR(100) NULL, 
+    [Date] DATETIME NOT NULL, 
+    [UserId] BIGINT NOT NULL, 
+    [Type] TINYINT NOT NULL, 
+    [Comment] NVARCHAR(1000) NULL, 
+    [Json] NVARCHAR(MAX) NULL
+)

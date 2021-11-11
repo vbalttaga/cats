@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Manual]
+(
+	[ManualId] BIGINT NOT NULL PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(100) NOT NULL,
+	[RoleId] BIGINT NOT NULL,
+	[LanguageId] BIGINT NOT NULL,
+	[DocumentId] BIGINT NOT NULL,
+    [DeletedBy] BIGINT NULL, 
+    [CreatedBy] BIGINT NOT NULL, 
+    [DateCreated] DATETIME NOT NULL
+)

@@ -1,0 +1,56 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="msapplication-config" content="none"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>@ViewBag.Title</title>
+        <link href="~/images/favicon.png" rel="shortcut icon" type="image/png" />
+        @Styles.Render("~/styles/common")
+        @Styles.Render("~/styles/simplified")
+        @Styles.Render("~/styles/front_common")
+        @Styles.Render("~/styles/front_simplified")
+        @Styles.Render("~/styles/" + (string)Session["Browser_specific"])
+        @Scripts.Render("~/scripts/jquerylib")
+        @Scripts.Render("~/scripts/front_common")
+        @Scripts.Render("~/scripts/commonlib")
+        @Scripts.Render("~/scripts/"+@ViewBag.Script)
+        <script type="text/javascript">
+            @if((bool)Session["IsSafary"]) { 
+            @:gIsSafary = true;
+            } else if((bool)Session["IsChrome"]) { 
+            @:gIsChrome = true;
+            } else if((bool)Session["IsFF"]) { 
+            @:gIsFF = true;
+            } else if((bool)Session["IsMacSafary"]) { 
+            @:gIsMacSafary = true;
+            } else if((bool)Session["IsMacChrome"]) { 
+            @:gIsMacChrome = true;
+            } else if((bool)Session["IsIE11"]) { 
+            @:gIsIE11 = true;
+            } else if((bool)Session["IsIE10"]) { 
+            @:gIsIE10 = true;
+            } else if((bool)Session["IsIE9"]) { 
+            @:gIsIE9 = true;
+            } else if((bool)Session["IsAndroidFF"]) { 
+            @:gIsAndroidFF = true;
+            } else if((bool)Session["IsAndroidNative"]) { 
+            @:gIsAndroidNative = true;
+            } else if((bool)Session["IsIPad"]) { 
+            @:gIsIPad = true;
+            } else if((bool)Session["IsMacFF"]) { 
+            @:gIsMacFF = true;
+            }else if ((bool)Session["IsIEOld"]){ 
+            @:gIsIEOld = true;
+            }	
+        </script>
+    </head>
+    <body>
+        @Html.Partial("../Layout/Simplified/_Header")
+        <div class="simplified-content">
+            @RenderBody()          
+        </div>
+        @Html.Partial("../Layout/Simplified/_Footer")
+    </body>
+</html>

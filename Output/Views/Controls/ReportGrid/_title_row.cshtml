@@ -1,0 +1,9 @@
+﻿@using Weblib.Models.Common
+<div class="data-grid-title">
+    <div class="data-grid-title-control @if(((LIB.AdvancedProperties.AdvancedProperty)Model).Common.Sortable==true) { @:data-grid-title-control-sortable @(((LIB.AdvancedProperties.AdvancedProperty)Model).PropertyName == (string)ViewData["SortCol"] ? "data-grid-title-control-sortable-" + ViewData["SortDir"].ToString() : "")
+                                                      } "
+         @if (((LIB.AdvancedProperties.AdvancedProperty)Model).Common.Sortable == true) {  @: onclick="SortReport(this,'@(((LIB.AdvancedProperties.AdvancedProperty)Model).PropertyName)')"
+                                    }>
+        @(((LIB.AdvancedProperties.AdvancedProperty)Model).Common.DisplayName)
+    </div>
+</div>

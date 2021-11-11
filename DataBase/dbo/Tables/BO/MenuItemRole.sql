@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[MenuItemRole]
+(
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
+    [MenuItemId] BIGINT NOT NULL, 
+    [RoleId] BIGINT NOT NULL
+)

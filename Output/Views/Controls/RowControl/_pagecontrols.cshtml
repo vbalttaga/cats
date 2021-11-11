@@ -1,0 +1,27 @@
+﻿@model Weblib.Models.Common.PageControlsModel
+@using Weblib.Models.Common
+@if (Model.Delete || Model.Save || (Model.Buttons != null && Model.Buttons.Any())) { 
+    <div class="page-controls">
+          @if (Model.Delete) 
+          { 
+              @Html.Partial("../Controls/_button", new ButtonModel() { Name = "Delete", Text = "Delete", Class= "button button-red", Action = "DeletePage(" + Model.Id + ",'" + Model.Object + "')" }); 
+          }
+          @if (Model.Save) 
+          {
+              @Html.Partial("../Controls/_button", new ButtonModel() { Name = "Save", Text = "Save", Action = "SavePage(" + Model.Id + ",'" + Model.Object + "'," + (Model.DisableDynamicControlsOnSave ? "true" : "false") + ")" });
+          }      
+          @if (Model.Buttons != null && Model.Buttons.Any()) 
+          {
+              foreach (var Button in Model.Buttons){
+                @Html.Partial("../Controls/_button", Button); 
+              }
+          }
+    </div>
+    <div class="loading"></div>
+    <div class="result-box-container">
+        <div class="result-box"></div>
+    </div>
+}
+<input type="hidden" value="@Model.Namespace" name="Namespace" />
+<input type="hidden" value="@Model.Id" name="Id" />
+<div id="printArea"></div>

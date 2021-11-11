@@ -1,0 +1,20 @@
+﻿@model Controls.NumberRange.Models.NumberRangeModel
+@using WebLib.UI
+@{
+    Layout = "";
+    Html.AddCssFileParts("~/plugins/NumberRange/css/NumberRange.css");  
+    Html.AddScriptParts("~/plugins/NumberRange/js/NumberRange.js");  
+}
+@if (Model.Mode != LIB.AdvancedProperties.DisplayMode.AdvancedEdit && Model.Mode != LIB.AdvancedProperties.DisplayMode.Search)
+{
+    <div class="control-numberrange control-view">
+        @(Model.Value)
+    </div> 
+    }
+@if (!Model.ReadOnly)
+{
+    <div data-control="numberrange" class="control-numberrange control-edit@((Model.Mode == LIB.AdvancedProperties.DisplayMode.AdvancedEdit || Model.Mode == LIB.AdvancedProperties.DisplayMode.Search)?" displayblock":"")">
+        @Html.Partial("../Controls/_textbox", Model.TextBoxFrom)<div class="control-defis"> - </div>@Html.Partial("../Controls/_textbox", Model.TextBoxTo)
+        <div class="clear"></div>
+    </div>
+}

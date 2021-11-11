@@ -1,0 +1,34 @@
+﻿@using Weblib.Models.Common
+@{
+    var model = (ButtonModel) Model;
+}
+<A 
+    id="@(model.Name)" 
+    class="@(!string.IsNullOrEmpty(model.Class)?model.Class:"button")@((model.PredefinedIcon != null) ? " " +model.PredefinedIcon.Class : "")"
+    @if (!model.Visible)
+    {
+        @:style="display:none"
+    }
+    @if (!string.IsNullOrEmpty(model.Href))
+    {
+        @:href="@(model.Href)"
+        if (model.InNewTab)
+        {
+            @:target="_blank"
+        }
+    }
+    else
+    {
+    @:href="#"
+    }    
+    @if (!string.IsNullOrEmpty(model.Action))
+    {
+    @:onclick="return @(model.Action)"
+    }
+    >
+    @if (!string.IsNullOrEmpty(model.Icon))
+    {
+        <i class="fa fa-@(model.Icon)"></i>
+    }
+    @(model.Text)
+ </A> 

@@ -1,0 +1,23 @@
+﻿@using Weblib.Models
+@using Gofraweblib.Enums
+@{
+    Layout = "~/Views/Master/_Standard.cshtml";
+    var Dashboard = ViewData["Dashboard"] is DashboardEnum?(DashboardEnum)ViewData["Dashboard"]: DashboardEnum.None;
+}
+<script>
+var gDashboardType = @((long)Dashboard);
+@Html.Partial("Controls/_Chart")
+</script>
+<div class="dashboard-icons-top">
+    @Html.Partial("_icons")
+</div>
+<div class="dashboard-icons">
+    @Html.Partial((string)ViewData["DashboardControl"])
+</div>
+<div id="dashboard_diag_separator" class="clear" style="display:none"></div>
+<div class="dashboard-diag">
+    <div class="dashboard-diag-container">
+    </div>    
+    @Html.Partial("_icons")
+</div>
+<div class="clear" style="height:1px"></div>

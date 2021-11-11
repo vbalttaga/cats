@@ -1,0 +1,104 @@
+// Input
+@Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel() 
+	{
+		Name = "Phone", 
+		Value = Model.Phone, 
+		Caption = "Telefon"
+	})
+	
+// TextArea
+@Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel()
+	{
+		Name = "OtherClientInfo",
+		Class = "textarea",
+		Type = Weblib.Models.Common.Enums.TextboxType.MultiLine,
+		Value = Model.OtherClientInfo,
+		Caption = ""
+	})
+
+// Autocomplete
+@Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel()
+	{
+		Name = "SamplingResponsable",
+		Value = Model.SamplingResponsable != null ? Model.SamplingResponsable.Name : "",
+		HtmlValue = Model.SamplingResponsable != null ? Model.SamplingResponsable.Id.ToString() : "",
+		Type = Weblib.Models.Common.Enums.TextboxType.AutoComplete,
+	    AutocompleteType = typeof(MedProjectLib.BusinessObjects.Post),
+	    AutocompleteServer = true,
+		Caption = ""
+	})
+	
+// Date
+@Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel()
+   {
+	   Name = "LaboratoryDate",
+	   Class = "input calendar-input",
+	   Type = Weblib.Models.Common.Enums.TextboxType.DateTime,
+	   Value = Model.LaboratoryDate != DateTime.MinValue ? Model.LaboratoryDate.ToString(@"dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) : "",
+	   DateValue = Model.LaboratoryDate != DateTime.MinValue ? Model.LaboratoryDate : DateTime.MinValue,
+	   Caption = ""
+   })
+					   
+// DropDown
+@Html.Partial("../Controls/RowControl/_selectrow", new DropDownModel()
+   {
+	   Name = "Status",
+	   AllowDefault = true,
+	   Value = (Model.Status != null ? Model.Status.Id.ToString() : "0"),
+	   Options = (new Status()).Populate(),
+	   Caption = "",
+	   ValidationType = ValidationTypes.None
+   })
+   
+//Number
+@Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel()
+	{
+		Name = "SamplingTemp",
+		Type = Weblib.Models.Common.Enums.TextboxType.Number,
+		Value = Model.SamplingTemp!=int.MinValue?Model.SamplingTemp.ToString():"",
+		Class = "input number-input",
+		Caption = ""
+	})
+
+//Decimal
+@Html.Partial("../Controls/RowControl/_inputrow", new TextboxModel()
+	{
+		Name = "SamplingTemp",
+		Type = Weblib.Models.Common.Enums.TextboxType.Number,
+		Value = Model.SamplingTemp!=decimal.MinValue?Model.SamplingTemp.ToString("0.0"):"",
+		Class = "input number-input",
+		Caption = ""
+	})
+
+// CheckBox
+@Html.Partial("../Controls/RowControl/_checkboxrow", new CheckboxModel() 
+	{ 
+		Name = "RequestType", 
+		Checked = (Model.RequestType == null || (Model.RequestType != null && Model.RequestType.Id == 1)), 
+		Caption = "" 
+	})
+	
+// Foto
+
+	@Html.Partial("../Controls/RowControl/_photorow", new PhotoModel()
+	{
+		Name = "Foto",
+		Value = Model.Foto,
+		Width = 205,
+		Height = 210
+	})
+	<script type="text/javascript">
+		initUploadImageFile('@LIB.Tools.Utils.URLHelper.GetUrl("Upload/DoUploadImage/")', 'Foto', 62, 41, 615, 630,"Person");
+	</script> 
+	
+// Radio
+
+// File
+
+                            @Html.Partial("../Controls/RowControl/_filerow", new DocumentModel()
+                        {
+                            Name = DevelopmentExecutionPaymentPrefix + "Document",
+                            ReadOnly = bReadonly,
+                            Value = Model.DevelopmentExecutionPaymentFinalized != null ? Model.DevelopmentExecutionPaymentFinalized.Document : null,
+                            Caption = SAPSIMA.Helpers.T.Str("DovadaPlataCopiaScanata", "ObjectFolder", "Copia Scanata")
+                        })

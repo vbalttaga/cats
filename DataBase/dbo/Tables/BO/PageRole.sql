@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[PageRole]
+(
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
+    [RoleId] BIGINT NOT NULL, 
+    [PageId] BIGINT NOT NULL
+)

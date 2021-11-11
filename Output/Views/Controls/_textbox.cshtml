@@ -1,0 +1,84 @@
+﻿@using Weblib.Models.Common
+@using Weblib.Models.Common.Enums
+@{
+    var s_class = "";
+    s_class += (!string.IsNullOrEmpty(((TextboxModel)Model).Class) ? ((TextboxModel)Model).Class : "input");
+    s_class += (((TextboxModel)Model).Type == TextboxType.HTMLPopUp ? " htmlpopup-input html-preview-input" : "");
+    s_class += (((TextboxModel)Model).Type == TextboxType.AutoComplete ? " autocomplete-input" : "");
+    s_class += (((TextboxModel)Model).Type == TextboxType.Integer ? " number-input" : "");
+    s_class += (((TextboxModel)Model).Type == TextboxType.Number ? " decimal-input" : "");
+    s_class += (((TextboxModel)Model).Type == TextboxType.HtmlPreview ? " html-preview-input" : "");
+}
+<input type="@Weblib.Helpers.Converter.GetTextboxType(((TextboxModel)Model).Type)"
+       name="@(((TextboxModel)Model).Name)"
+       placeholder="@(((TextboxModel)Model).PlaceHolder)"
+       class="@(s_class)"
+       @if (((TextboxModel)Model).Width != 0) { @: style="width:@(((TextboxModel)Model).Width)px"
+       }
+       @if (((TextboxModel)Model).Type == TextboxType.Number) { @: step="any"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).AutocompleteFilter)) { @: data-filter="@(((TextboxModel)Model).AutocompleteFilter)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).AutocompleteFilter)) { @: data-cond="@(((TextboxModel)Model).AutocompleteFilter)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).Value)) { @: value="@(((TextboxModel)Model).Value)"
+       }
+       @if (((TextboxModel)Model).ValidationType != LIB.AdvancedProperties.ValidationTypes.None) { @: data-req="@((int)((TextboxModel)Model).ValidationType)"
+       }
+       @if (((TextboxModel)Model).MaxLength > 0) { @: maxlength="@(((TextboxModel)Model).MaxLength)"
+       }
+       @if (((TextboxModel)Model).MinLength > 0) { @: data-minlength="@(((TextboxModel)Model).MinLength)"
+       }
+       @if (((TextboxModel)Model).Type == TextboxType.HtmlPreview || ((TextboxModel)Model).Type == TextboxType.HTMLPopUp) { @: title="@(((TextboxModel)Model).HtmlValue)"
+       }
+       @if (((TextboxModel)Model).ValidationType != LIB.AdvancedProperties.ValidationTypes.None && !string.IsNullOrEmpty(((TextboxModel)Model).RequiredMessage)) { @: data-req-mess="@(((TextboxModel)Model).RequiredMessage)"
+       }
+       @if (((TextboxModel)Model).Type == Weblib.Models.Common.Enums.TextboxType.ReadOnly || ((TextboxModel)Model).Disabled) { @: disabled
+       }
+       @if (((TextboxModel)Model).ReadOnly || ((TextboxModel)Model).Type == TextboxType.Date || ((TextboxModel)Model).Type == TextboxType.DateTime) { @: readonly
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).PopUpParam)) { @: data-param="@(((TextboxModel)Model).PopUpParam)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).Min)) { @: min="@(((TextboxModel)Model).Min)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).Max)) { @: max="@(((TextboxModel)Model).Max)"
+       }
+       @if (((TextboxModel)Model).Type == Weblib.Models.Common.Enums.TextboxType.DateTime) { @: data-maxyear="@(((TextboxModel)Model).MaxYear)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).OnKeyPress)) { @: onkeypress="@(((TextboxModel)Model).OnKeyPress)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).OnType)) { @: onkeydown="@(((TextboxModel)Model).OnType)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).OnKeyUp)) { @: onkeyup="@(((TextboxModel)Model).OnKeyUp)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).OnChange)) { @: onchange="@(((TextboxModel)Model).OnChange)"
+       }
+       @if (((TextboxModel)Model).Type == TextboxType.AutoComplete) { @: data-namespace="@( HttpUtility.UrlEncode(((TextboxModel)Model).AutocompleteType.FullName))"
+       }
+       @if (((TextboxModel)Model).Type == TextboxType.AutoComplete) { @: data-classname="@( HttpUtility.UrlEncode(((TextboxModel)Model).AutocompleteType.Name))"
+       }
+       @if (((TextboxModel)Model).Type == TextboxType.AutoComplete) { @: data-AutocompleteMinLen="@( ((TextboxModel)Model).AutocompleteMinLen )"
+       }
+       @if (((TextboxModel)Model).Type == TextboxType.AutoComplete) { @: data-AutocompleteName="@( !string.IsNullOrEmpty(((TextboxModel)Model).AutocompleteName)?((TextboxModel)Model).AutocompleteName:((TextboxModel)Model).Name )"
+       }
+       @if (((TextboxModel)Model).Type == TextboxType.AutoComplete && ((TextboxModel)Model).AutocompleteServer) { @: data-autocomplete-server="1"
+       }
+       @if (((TextboxModel)Model).Type == TextboxType.AutoComplete && ((TextboxModel)Model).AutocompleteAllowNew) { @: data-autocomplete-allownew="1"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).ValidationFuction)) { @: data-validationfunc="@(((TextboxModel)Model).ValidationFuction)"
+       }
+       @if (!string.IsNullOrEmpty(((TextboxModel)Model).RegularExpression)) { @: data-regexp="@(((TextboxModel)Model).RegularExpression)"
+       }></input>
+@if (((TextboxModel)Model).Type == TextboxType.AutoComplete)
+{
+    <input type="hidden" name="@(((TextboxModel)Model).Name)_id" value="@(((TextboxModel)Model).HtmlValue)" />
+}
+@if (((TextboxModel)Model).AutocompleteClear && !((TextboxModel)Model).Disabled && (((TextboxModel)Model).Type == TextboxType.AutoComplete))
+{
+    <a href="#" onclick="return clear_autocomplete(this)" class="clear-link"></a>
+}
+@if (((TextboxModel)Model).Type == TextboxType.HTMLPopUp)
+{
+    <a href="@LIB.Tools.Utils.URLHelper.GetUrl("HtmlPopUp/"+((TextboxModel)Model).PopUpParam)" onclick="@(((TextboxModel)Model).PopUpClick)" class="@(((TextboxModel)Model).UseFancyBox ? "htmlpopup-link fancybox.ajax" : "htmlpopup-link-nofancy")"></a>
+    <input type="hidden" name="@(((TextboxModel)Model).Name)_fullpopupvalue" value="@(((TextboxModel)Model).HtmlValue)" />
+}

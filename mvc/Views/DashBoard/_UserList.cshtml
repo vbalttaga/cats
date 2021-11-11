@@ -1,0 +1,30 @@
+﻿@using LIB.BusinessObjects
+@if (((Dictionary<long, User>)ViewData["List"]).Count > 0)
+{
+    <script type="text/javascript">
+        var gLatestDashboardId = @(((Dictionary<long, LIB.BusinessObjects.User>)ViewData["List"]).Values.First(i => i.Id>0).Id);
+        var gDashboardItemsCount = @(((Dictionary<long, LIB.BusinessObjects.User>)ViewData["List"]).Count);
+    </script>
+    <form class="table-widget">
+        <div class="dashboard-ico">
+            <div class="outer-ico">
+                <div class="widget-caption">
+                    @Gofra.Helpers.T.Str("Users", "DashBoard", "Utilizatori sistemului")
+                </div>
+                <div class="data-grid-container">
+                    <div class="data-grid">
+                        <div class="data-grid-title-row">
+                            <div class="data-grid-title">N</div>
+                            <div class="data-grid-title">Login</div>
+                            <div class="data-grid-title">@Gofra.Helpers.T.Str("Name", "DashBoard", "Nume")</div>
+                            <div class="data-grid-title">@Gofra.Helpers.T.Str("LastLogin", "DashBoard", "Ultimul login")</div>
+                            <div class="data-grid-title">@Gofra.Helpers.T.Str("DateCreated", "DashBoard", "Creat la")</div>
+                        </div>
+                        @Html.Partial("Controls/_UsersRows")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear" style="height:1px"></div>
+    </form>
+}

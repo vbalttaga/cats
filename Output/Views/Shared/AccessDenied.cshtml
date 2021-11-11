@@ -1,0 +1,43 @@
+﻿
+@using Weblib.Models
+@{
+    Layout = "~/Views/Master/_AdminSimplified.cshtml";
+}
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a style="display:block;margin: 0px auto;" href="@LIB.Tools.Utils.URLHelper.GetUrl("")">
+                <img src="@LIB.Tools.Utils.URLHelper.GetUrl(@"Images\logo_btn.png")" />
+            </a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <section class="content">
+                <div class="error-page">
+                    <h4 class="headline text-yellow" style="font-size: 50px!important;"> Access Interzis</h4>
+                    <div class="error-content">
+
+                        <p style="margin-top:30px!important">
+                            <i class="fa fa-warning text-yellow"></i>
+                            Nu aveți permisiune pentru a accesa această pagină.
+                            Vă rugăm să contactați administratorul sau să reveniți pe Dashboard.
+                        </p>
+
+                        <a onclick="goback()" style="width:60%;display:block;margin: 0px auto;" class="btn btn-block btn-danger btn-sm">
+                            Reveniți pe pagina aterioară
+                        </a>
+                    </div>
+                    <!-- /.error-content -->
+                </div>
+                <!-- /.error-page -->
+            </section>
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <div class="clear"></div>
+
+    <script>
+        function goback() {
+            history.back();
+        }
+    </script>

@@ -1,0 +1,158 @@
+﻿@using Weblib.Models.Common
+@using LIB.Models
+@using LIB.Tools.Utils
+@using LIB.BusinessObjects
+@{
+    var currentLanguage = (Language)Session[SessionItems.Language];
+}
+<div class="header">
+    <div class="header-left">
+        <div id="start_btn">
+            <a href="@LIB.Tools.Utils.URLHelper.GetUrl("")" id="start_link">
+            </a>
+            <div id="main_menu">
+                <div class="menu">
+                    <div class="menu-sections">
+                        @if (ViewData["MainMenu"] != null)
+                        {
+                            var count = 0;
+                            foreach (GofraLib.BusinessObjects.MenuGroup MenuGroup in ((Dictionary<long, GofraLib.BusinessObjects.MenuGroup>)ViewData["MainMenu"]).Values)
+                            {
+                                if (MenuGroup.Visible && LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission(MenuGroup.Permission))
+                                {
+                                    count++;
+                                }
+                            }
+                            var ind = 0;
+                            foreach (GofraLib.BusinessObjects.MenuGroup MenuGroup in ((Dictionary<long, GofraLib.BusinessObjects.MenuGroup>)ViewData["MainMenu"]).Values)
+                            {
+                                if (MenuGroup.Visible && LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission(MenuGroup.Permission))
+                                {
+                                    <div onclick="show_global_menu(this)"
+                                         class="menu-section @MenuGroup.BuildIco() @if(((Dictionary<long, GofraLib.BusinessObjects.MenuGroup>)ViewData["MainMenu"]).Count==0){ @:menu-section-selected
+                                                                             } ">
+                                        @MenuGroup.Name
+                                    </div>
+                                    <div class="sub-menu-section @if ((count <= 2 && ind==0) || ((Dictionary<long, GofraLib.BusinessObjects.MenuGroup>)ViewData["MainMenu"]).Count == 0)
+                                                            { @:menu-section-opened
+                                                                             } ">
+                                        @foreach (GofraLib.BusinessObjects.MenuItem MenuItem in MenuGroup.MenuItems.Values)
+                                        {
+                                            if (MenuItem.Visible && LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission(MenuItem.Permission))
+                                            {
+                                                <a href="@MenuItem.BuildUrl()" class="@MenuItem.BuildIco()">@MenuItem.Name</a>
+                                            }
+                                        }
+                                    </div>
+                                    ind++;
+                                }
+                            }
+                        }
+                    </div>
+                    <div class="menu-rescent-items">
+                        <div class="menu-rescent-caption">
+                            @Gofra.Helpers.T.Str("RecentPages","DashBoard","Pagini recente")
+                        </div>
+                        <div class="menu-rescents">
+                            @foreach (GofraLib.BusinessObjects.MenuItem MenuItem in ((Dictionary<long, GofraLib.BusinessObjects.MenuItem>)ViewData["RecentMenu"]).Values)
+                            {
+                                if (LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission(MenuItem.Permission))
+                                {
+                                    <a href="@MenuItem.BuildUrl()" class="@MenuItem.BuildIco() menu-rescent">@MenuItem.Name</a>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="menu-controls">
+                    <div class="menu-control menu-search">
+                        @Html.Partial("../Controls/_textbox", new Weblib.Models.Common.TextboxModel() { Name = "menu_searh" })
+                    </div>
+                    <div class="menu-control menu-logout">
+                        @Html.Partial("../Controls/_button", new Weblib.Models.Common.ButtonModel() { Name = "logout", Text = "Exit", Href = LIB.Tools.Utils.URLHelper.GetUrl("Account\\LogOff\\"), PredefinedIcon = Weblib.Models.Common.Icon.Logout })
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (ViewData["Breadcrumbs"] != null)
+    {
+        <div class="header-breadcrumbs">
+            @foreach (var ilink in (List<LIB.Models.Common.iBaseControlModel>)ViewData["Breadcrumbs"])
+            {
+                var link = (LIB.Models.LinkModel)ilink;
+                <a href="@link.Href"
+                   @if (!string.IsNullOrEmpty(link.Class)) { @: class="@link.Class"
+                   }>@Html.Raw(link.Caption)</a>
+            }
+            <div class="clear"></div>
+        </div>
+    }
+    <div class="header-right">
+        <div class="header-control">
+            @Html.Partial("../Controls/_textbox", new Weblib.Models.Common.TextboxModel() { Name = "global_searh", OnType = "search_on_enter(this,event)" })
+            @{
+                var SearchPage = "RequestRegister";
+                /*if (LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission((long)LIB.BusinessObjects.BasePermissionenum.AccessRequests))
+                {
+                    SearchPage = "RequestRegister";
+                }
+                else if (LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission((long)LIB.BusinessObjects.BasePermissionenum.AccessProtocol))
+                {
+                    SearchPage = "ProtocolRegister";
+                }
+                else if (LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission((long)LIB.BusinessObjects.BasePermissionenum.AccessInvestigations))
+                {
+                    SearchPage = "SectionPage";
+                }*/
+            }
+            <A href="#" onclick="return doSearch('@SearchPage')" id="search-btn" class="header-btn"></A>
+            <A href="#" id="lang-btn" onclick="return toggleLang()" class="header-btn">@(currentLanguage.ShortName)</A>
+            <ul id="lang-list">
+                @foreach (var lang in ((Dictionary<long, LIB.Tools.BO.ItemBase>)ViewData["Languages"]).Values)
+                {
+                    <li>
+                        <a href="#" onclick="return changeLanguage(@(lang.Id))">@(((Language)lang).ShortName)</a>
+                    </li>
+                }
+            </ul>
+            <A href="@LIB.Tools.Utils.URLHelper.GetUrl("Documents\\Manual.pdf")" target="_blank" id="help-btn" class="header-btn"></A>
+            <div class="clear"></div>
+        </div>
+        @if (LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission((long)LIB.BusinessObjects.BasePermissionenum.CPAccess))
+        {
+            <div class="header__icon-container">
+                <a title="Control Panel" href="@LIB.Tools.Utils.URLHelper.GetUrl("controlpanel/dashboard")" class="icon-container__icon icon-container__icon-cp"></a>
+            </div>
+        }
+        @if (LIB.Tools.Security.Authentication.GetCurrentUser().HasAtLeastOnePermission((long)LIB.BusinessObjects.BasePermissionenum.SMIAccess))
+        {
+            <div class="header__icon-container">
+                <a title="System Management Interface" href="@LIB.Tools.Utils.URLHelper.GetUrl("systemmanagement/dashboard")" class="icon-container__icon icon-container__icon-smi"></a>
+            </div>
+        }
+        @{var person = LIB.Tools.Security.Authentication.GetCurrentUser().Person;}
+        <div class="user-info">
+            <div class="user-info-left">
+                <A href="@LIB.Tools.Utils.URLHelper.GetUrl("Account/Manage")" class="user-info-username">
+                    @(person.FirstName + " " + person.LastName)
+                </A>
+            </div>
+            <div class="user-info-right">
+                @{ var Messages_Count = GofraLib.BusinessObjects.User.Populate(LIB.Tools.Security.Authentication.GetCurrentUser()).Messages.Count; }
+                <A href="@LIB.Tools.Utils.URLHelper.GetUrl("Account/Manage")" class="user-info-message">
+                    @if (Messages_Count > 1)
+                    {
+                        <div class="user-info-messages-count">
+                            @(Messages_Count)
+                        </div>
+                    }
+                </A>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,24 @@
+﻿@using Weblib.Models
+@using Weblib.Models.Common
+@{
+    Layout = "~/Views/Master/_Standard.cshtml";
+}
+<div class="inner-content-area content-report" action="@LIB.Tools.Utils.URLHelper.GetUrl("Report/Search")">    
+    <div class="ajax-loading-overlay"></div>       
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)  
+    <div class="edit-section-header report-filter-section-header">
+        <div class="edit-section-header-caption">@(!string.IsNullOrEmpty((string)ViewData["Report_Name"])?ViewData["Report_Name"]:"Filter")</div>
+        &nbsp;> <a href="#" onclick="return ShowQueryOptions('@(ViewData["Model"])')">@Gofra.Helpers.T.Str("ReportSettings", "DashBoard", "Modifică lista câmpurilor")</a>
+        <a href="#" onclick="return doPrintReport()" class="edit-section-icons edit-section-print" title="Tipar Raport"></a>
+        <a href="#" onclick="return doExportExcellReport()" class="edit-section-icons edit-section-excell" title="Export Raport Excell"></a>
+        <a href="#" onclick="return doExportCsvReport()" class="edit-section-icons edit-section-csv" title="Export Raport CSV"></a>
+        <div class="clear"></div>
+    </div>
+    @Html.Partial("../Controls/SearchGrid/_data_grid", ViewData["SearchItem"])
+    <div class="search-results">
+        @Html.Partial("../Controls/ReportGrid/_data_grid", ViewData["DataItems"])
+    </div>
+    <input type="hidden" id="sSearch" value="@(ViewData["sSearch"])"/>
+    <div id="printArea"></div>
+</div>

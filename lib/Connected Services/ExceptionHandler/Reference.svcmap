@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="360d1aff-6d45-46c5-a896-09deae9488cc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Translations" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://erbt:81/Service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service7.xsd" MetadataType="Schema" ID="9e9e2ee0-4c65-4549-9b4b-b5cef297071a" SourceId="1" SourceUrl="http://erbt:81/Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service71.xsd" MetadataType="Schema" ID="a10f86ea-9442-4d2b-9cc8-c14e20452760" SourceId="1" SourceUrl="http://erbt:81/Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service72.xsd" MetadataType="Schema" ID="088f3e39-f029-44c6-88f2-2470e688c1e3" SourceId="1" SourceUrl="http://erbt:81/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service73.xsd" MetadataType="Schema" ID="d9d4c19f-a6df-4781-a1e2-06a5c3cc33b2" SourceId="1" SourceUrl="http://erbt:81/Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="c2c47343-a481-4b88-8095-a4f047359d6f" SourceId="1" SourceUrl="http://erbt:81/Service.svc?disco" />
+    <MetadataFile FileName="Service74.xsd" MetadataType="Schema" ID="e8ebe25d-9f75-4781-9834-62d9716bdac0" SourceId="1" SourceUrl="http://erbt:81/Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="Service75.xsd" MetadataType="Schema" ID="342388b3-704f-43cd-93b6-b1a3cc2d4c0b" SourceId="1" SourceUrl="http://erbt:81/Service.svc?xsd=xsd6" />
+    <MetadataFile FileName="Service76.xsd" MetadataType="Schema" ID="49432dfb-2dcc-4699-9f52-494586066b60" SourceId="1" SourceUrl="http://erbt:81/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="ExceptionHandlerService1.wsdl" MetadataType="Wsdl" ID="5715ac6e-50a6-4aae-a1ce-1cac91c4f07b" SourceId="1" SourceUrl="http://erbt:81/Service.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
