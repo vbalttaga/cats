@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Shop]
+(
+	[ShopId] BIGINT NOT NULL PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(100) NOT NULL,
+	[JurName] NVARCHAR(100) NOT NULL,
+	[CityId] BIGINT NOT NULL,
+	[DeletedBy] BIGINT NULL, 
+    [CreatedBy] BIGINT NOT NULL, 
+    [DateCreated] DATETIME NOT NULL
+)

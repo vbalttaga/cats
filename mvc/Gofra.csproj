@@ -254,7 +254,14 @@
     <Compile Include="Helpers\BasicAuthHttpModule.cs" />
     <Compile Include="Helpers\ExtendedRazorViewEngine .cs" />
     <Compile Include="Helpers\T.cs" />
-    <Compile Include="Models\Objects\Class1.cs" />
+    <Compile Include="Models\Other\CatSource.cs" />
+    <Compile Include="Models\Other\CatSpecies.cs" />
+    <Compile Include="Models\Other\City.cs" />
+    <Compile Include="Models\Other\Color.cs" />
+    <Compile Include="Models\Objects\CatRealization.cs" />
+    <Compile Include="Models\Objects\Cats.cs" />
+    <Compile Include="Models\Objects\Client.cs" />
+    <Compile Include="Models\Objects\Shop.cs" />
     <Compile Include="Models\Print\TestPrint.cs" />
     <Compile Include="Models\Reports\UserList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1301,7 +1308,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Dashboards\" />
-    <Folder Include="Models\Lib\" />
+	<Folder Include="Models\Lib\" />
     <Folder Include="Styles\" />
     <Folder Include="Views\DocControl\" />
     <Folder Include="Views\DynamicControl\" />

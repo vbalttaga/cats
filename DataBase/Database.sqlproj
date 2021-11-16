@@ -71,6 +71,9 @@
     <Folder Include="dbo\Tables\Reports" />
     <Folder Include="dbo\Stored Procedures\System" />
     <Folder Include="dbo\Tables\FrontEndBase" />
+    <Folder Include="dbo\Tables\Cats" />
+    <Folder Include="dbo\Tables\Shop" />
+    <Folder Include="dbo\Tables\Other" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Functions\Table-valued funсtions\Split.sql" />
@@ -135,6 +138,15 @@
     <Build Include="dbo\Stored Procedures\System\PrintableReport_LoadTemplate.sql" />
     <Build Include="dbo\Stored Procedures\Common\Manuals_Populate.sql" />
     <Build Include="dbo\Tables\BO\Manual.sql" />
+    <Build Include="dbo\Tables\Cats\Cats.sql" />
+    <Build Include="dbo\Tables\Cats\CatSource.sql" />
+    <Build Include="dbo\Tables\Cats\CatSpecies.sql" />
+    <Build Include="dbo\Tables\Other\City.sql" />
+    <Build Include="dbo\Tables\Other\Color.sql" />
+    <Build Include="dbo\Tables\Other\OperationDirection.sql" />
+    <Build Include="dbo\Tables\Shop\Client.sql" />
+    <Build Include="dbo\Tables\Shop\Shop.sql" />
+    <Build Include="dbo\Tables\Shop\CatRealization.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Script.PostDeployment.sql" />
